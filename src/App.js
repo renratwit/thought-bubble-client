@@ -13,7 +13,8 @@ import { useAuth0 } from '@auth0/auth0-react'
 
 
 const App = () => {
-  const { user , isAuthenticated} = useAuth0();
+  const { user , isAuthenticated, isLoading} = useAuth0();
+  console.log(user)
   const [messages, setMessages] = useState([]);
 
   let myLong = 0, myLat = 0;
@@ -66,12 +67,13 @@ const App = () => {
   }
 
   console.log("AUTH " , isAuthenticated)
+  if (isLoading) return <div>Loading</div>
   return (
     <div>
       {authButton}
       <Profile/>
       <h1>Thought Bubble</h1>
-      <Form submittingRequest={submittingRequest}/>
+      <Form submittingRequest={submittingRequest} user={user}/>
       <Thoughts messages={messages}/>
     </div>
   );

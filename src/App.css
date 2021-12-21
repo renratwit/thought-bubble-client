@@ -2,3 +2,11 @@
   width: 50%;
   height: 50vh;
 }
+
+.collapse-content.collapsed {
+  display: none;
+}
+
+.collapse-content.expanded {
+  display: block;
+}

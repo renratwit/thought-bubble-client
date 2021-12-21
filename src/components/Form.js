@@ -3,12 +3,17 @@ import {TextField, Button} from '@material-ui/core'
 import {useState, useEffect} from 'react'
 import axios from 'axios'
 import { createThought, getThoughts } from '../api'
+import { useAuth0 } from '@auth0/auth0-react'
 
-const Form = ({submittingRequest}) => {
+const Form = ({submittingRequest, user}) => {
     const [messages, setMessages] = useState([]);
+    const [loggedUser, setLoggedUser] = useState('undefined creator');
+
+    console.log(user)
 
     const [currentPost, setCurrentPost] = useState({
         message: '',
+        creator: user.name,
         location: {
             type: "Point",
             coordinates: []
@@ -32,6 +37,7 @@ const Form = ({submittingRequest}) => {
       }
 
       useEffect(() => {
+        if (user) setLoggedUser(user.name)
         if ("geolocation" in navigator) {
             console.log("Available")
             navigator.geolocation.getCurrentPosition((position) => {
