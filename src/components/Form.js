@@ -15,6 +15,8 @@ const Form = ({submittingRequest, user}) => {
         message: '',
         creator: user.name || '',
         rating: 0,
+        upvoted: [],
+        downVoted: [],
         location: {
             type: "Point",
             coordinates: []
