@@ -5,6 +5,7 @@ import {Icon} from 'leaflet';
 
 import { getThoughts } from '../api';
 import Map from './Map'
+import Thought from './Thought';
 
 const Thoughts = ({messages}) => {
     console.log("THOUGHTS ", messages)
@@ -13,26 +14,15 @@ const Thoughts = ({messages}) => {
         const thoughts = await getThoughts();
         console.log(thoughts)
     }
-    const elements = []
-
-    messages.forEach(e => {
-        console.log(e)
-        elements.push(
-            <div>
-                <li key={e._id}>{e.message}</li>
-                <Map location={e}/>
-            </div>
-            )
-        console.log(elements)
-    })
     
     return (
         <div>
-            <h1>THOUGHTS</h1>
             {
-              elements
+                messages.map((thought) => (
+                    <Thought thought={thought}/>
+                ))
             }
-            <button onClick={handleButtonClick}>Refresh</button>
+            {/* <button onClick={handleButtonClick}>Refresh</button> */}
         </div>    
     )
 }

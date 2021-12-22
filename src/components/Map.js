@@ -10,6 +10,7 @@ export default function Map({location}) {
         <div>
             <button onClick={() => setCollapsed(!isCollapsed)}>{buttonText}</button>
             <div className={`collapse-content ${isCollapsed ? 'collapsed' : 'expanded'}`}>
+                <p>Exact location is not shown for privacy</p>
                 <MapContainer center={[location.location.coordinates[1], location.location.coordinates[0]]} zoom={15} scrollWheelZoom={false}>
                     <TileLayer
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

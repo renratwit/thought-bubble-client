@@ -9,11 +9,12 @@ const Form = ({submittingRequest, user}) => {
     const [messages, setMessages] = useState([]);
     const [loggedUser, setLoggedUser] = useState('undefined creator');
 
-    console.log(user)
+    // console.log(user)
 
     const [currentPost, setCurrentPost] = useState({
         message: '',
-        creator: user.name,
+        creator: user.name || '',
+        rating: 0,
         location: {
             type: "Point",
             coordinates: []
@@ -22,7 +23,7 @@ const Form = ({submittingRequest, user}) => {
 
     const getAllMessages = () => {
         axios.get('http://localhost:5000').then(res => {
-            console.log("inside get()");
+            //console.log("inside get()");
             const allMessages = res.data
             setMessages(allMessages)
             //console.log("messages", messages)
@@ -32,16 +33,16 @@ const Form = ({submittingRequest, user}) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         submittingRequest(currentPost)
-        console.log("submitting ", currentPost)
+        // console.log("submitting ", currentPost)
         currentPost.message = ''
       }
 
       useEffect(() => {
         if (user) setLoggedUser(user.name)
         if ("geolocation" in navigator) {
-            console.log("Available")
+            // console.log("Available")
             navigator.geolocation.getCurrentPosition((position) => {
-                console.log(position.coords)
+                // console.log(position.coords)
                 setCurrentPost({... currentPost, location: {type: "Point", coordinates: [position.coords.longitude, position.coords.latitude]}})
             })
         } else {
