@@ -13,7 +13,6 @@ const Form = ({submittingRequest, user}) => {
 
     const [currentPost, setCurrentPost] = useState({
         message: '',
-        creator: user.email || '',
         rating: 0,
         upvoted: [],
         downVoted: [],

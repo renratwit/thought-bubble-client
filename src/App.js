@@ -82,13 +82,13 @@ const App = () => {
     authButton = <LoginButton/>
   }
 
-  console.log("AUTH " , isAuthenticated)
-  if (isLoading) return <div>Loading</div>
-  if (!isAuthenticated) return <LoginButton/>
+  // console.log("AUTH " , isAuthenticated)
+  // if (isLoading) return <div>Loading</div>
+  // if (!isAuthenticated) return <LoginButton/>
   return (
     <div>
       <button onClick={() => handleGetUserData()}>Test</button>
-      {authButton}
+      {/* {authButton} */}
       <Profile/>
       <h1>Thought Bubble</h1>
       <Form submittingRequest={submittingRequest} user={user}/>
