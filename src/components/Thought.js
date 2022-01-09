@@ -55,6 +55,11 @@ export default function Thought({thought}) {
     return (
         <div className="thought">
             <h1>{thought.message}</h1>
+            {
+                thought.comments.map(c => 
+                    (<p>{c}</p>)
+                )
+            }
             <CommentForm thought={thought}/>
             <Map location={thought}/>
         </div>

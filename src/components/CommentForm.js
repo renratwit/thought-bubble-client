@@ -10,7 +10,8 @@ export default function CommentForm({thought}) {
         e.preventDefault();
         console.log(thought) 
         try {
-            postComment(comment, thought)
+            postComment(comment, thought);
+            setComment('')
         } catch(e){
             console.error(e)
         } 
@@ -19,7 +20,7 @@ export default function CommentForm({thought}) {
     return (
         <div>
             <form>
-                <TextField onChange={(e)=>setComment(e.target.value)}/>
+                <TextField onChange={(e)=>setComment(e.target.value)} value={comment}/>
                 <Button varient="contained" onClick={(e)=>handleSubmit(e)}>Post Comment</Button>
             </form>
         </div>
