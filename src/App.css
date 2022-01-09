@@ -10,3 +10,7 @@
 .collapse-content.expanded {
   display: block;
 }
+
+.thought {
+  background-color: lightblue;
+}

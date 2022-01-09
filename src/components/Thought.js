@@ -4,6 +4,8 @@ import {useState, useEffect} from 'react'
 import { upVote, downVote } from '../api'
 import { useAuth0 } from '@auth0/auth0-react'
 
+import CommentForm from './CommentForm'
+
 export default function Thought({thought}) {
     const { user , isAuthenticated, isLoading} = useAuth0();
     const [rating, setRating] = useState(thought.rating)
@@ -51,11 +53,12 @@ export default function Thought({thought}) {
     }
 
     return (
-        <div>
+        <div className="thought">
             <h1>{thought.message}</h1>
             <button onClick={() => handleUpVote()} disabled={disableUpVote}>Vote up</button>
             <p>{rating}</p>
             <button onClick={() => handleDownVote()} disabled={disableDownVote}>Vote Down</button>
+            <CommentForm thought={thought}/>
             <Map location={thought}/>
         </div>
     )

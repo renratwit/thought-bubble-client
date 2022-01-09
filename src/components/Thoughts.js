@@ -13,6 +13,11 @@ const Thoughts = ({messages}) => {
     const handleButtonClick = async() => {
         const thoughts = await getThoughts();
         console.log(thoughts)
+        try {
+
+        }catch(e) {
+            console.error(e)
+        }
     }
     
     return (
