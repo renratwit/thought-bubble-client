@@ -14,6 +14,7 @@ export default function Thought({thought}) {
 
     const [disableUpVote, setDisableUpVote] = useState(false)
     const [disableDownVote, setDisableDownVote] = useState(false)
+    const [comments, setComments] = useState(thought.comments)
 
     useEffect(() => {
         console.log("In useEffect ", thought)
@@ -25,6 +26,11 @@ export default function Thought({thought}) {
         // if (downVotedArr.includes(email)) setDisableDownVote(true)
         
     }, [])
+
+    let handleCommentPost = (comment) => {
+        setComments([... comments, comment])
+        console.log(comments)
+    }
 
     // const handleUpVote = async () => {
     //     try {
@@ -56,11 +62,11 @@ export default function Thought({thought}) {
         <div className="thought">
             <h1>{thought.message}</h1>
             {
-                thought.comments.map(c => 
+                comments.map(c => 
                     (<p>{c}</p>)
                 )
             }
-            <CommentForm thought={thought}/>
+            <CommentForm thought={thought} handleCommentPost={handleCommentPost}/>
             <Map location={thought}/>
         </div>
     )
