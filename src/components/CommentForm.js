@@ -20,7 +20,7 @@ export default function CommentForm({thought, handleCommentPost}) {
     }
     return (
         <div>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <TextField onChange={(e)=>setComment(e.target.value)} value={comment}/>
                 <Button varient="contained" onClick={(e)=>handleSubmit(e)}>Post Comment</Button>
             </form>
