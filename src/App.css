@@ -1,6 +1,9 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
 .leaflet-container {
-  width: 50%;
-  height: 50vh;
+  width: 25%;
+  height: 25vh;
 }
 
 .collapse-content.collapsed {
