@@ -87,10 +87,9 @@ const App = () => {
   // if (!isAuthenticated) return <LoginButton/>
   return (
     <div>
-      <button onClick={() => handleGetUserData()}>Test</button>
       {/* {authButton} */}
       <Profile/>
-      <h1>Thought Bubble</h1>
+      <h1 className="title">Thought Bubble</h1>
       <Form submittingRequest={submittingRequest} user={user}/>
       <Thoughts messages={messages}/>
     </div>
