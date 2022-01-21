@@ -6,8 +6,6 @@ import Form from './components/Form'
 import {TextField, Button} from '@material-ui/core'
 import { createThought, getThoughts } from './api';
 import { getUser } from './api';
-import { LoginButton } from './components/LoginButton';
-import { LogoutButton } from './components/LogoutButton';
 import Profile from './components/Profile';
 import { useAuth0 } from '@auth0/auth0-react'
 
@@ -73,13 +71,7 @@ const App = () => {
     console.log("SUBMITTING REQUEST " + p)
     await createThought(p)
     getNearMessages()
-  }
-
-  let authButton;
-  if (isAuthenticated) {
-    authButton = <LogoutButton/>
-  } else {
-    authButton = <LoginButton/>
+    window.location.reload(false);
   }
 
   // console.log("AUTH " , isAuthenticated)

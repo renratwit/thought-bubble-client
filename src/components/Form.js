@@ -19,7 +19,8 @@ const Form = ({submittingRequest, user}) => {
         location: {
             type: "Point",
             coordinates: []
-        }
+        },
+        dateCreated: Date.now(),
       })
 
     const getAllMessages = () => {
@@ -33,6 +34,8 @@ const Form = ({submittingRequest, user}) => {
       
     const handleSubmit = (e) => {
         e.preventDefault();
+        if(currentPost.message.length === 0) return;
+        // setCurrentPost({...currentPost, dateCreated: new Date().toString()})
         submittingRequest(currentPost)
         // console.log("submitting ", currentPost)
         currentPost.message = ''
@@ -53,7 +56,7 @@ const Form = ({submittingRequest, user}) => {
 
     return (
         <div>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className="postForm">
                 <TextField value={currentPost.message} onChange={e => setCurrentPost({...currentPost, message: e.target.value})}/>
                 <Button varient="contained" type="submit">Submit</Button>
             </form>
