@@ -1,9 +1,13 @@
 import React from 'react'
 import {Circle, MapContainer, Marker, Popup, TileLayer} from 'react-leaflet'
 import {Icon} from 'leaflet';
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 export default function Map({location}) {
     const [isCollapsed, setCollapsed] = useState(false)
+
+    useEffect(() => {
+        setCollapsed(true)
+    }, [])
 
     let buttonText = isCollapsed ? 'Show Map' : 'Hide Map'
     return (
