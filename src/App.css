@@ -16,6 +16,23 @@ body {
   top: 50%;
 }
 
+.thoughts {
+  display: flex;
+  background-color: antiquewhite;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.thought {
+  background-color: #5fc9f3;
+  padding: 10px;
+  margin: 15px;
+  flex: auto;
+  border-radius: 10px;
+  width: 40%;
+}
+
 .leaflet-container {
   width: 100%;
   height: 60vh;
@@ -27,15 +44,6 @@ body {
 
 .collapse-content.expanded {
   display: block;
-}
-
-.thought {
-  background-color: #5fc9f3;
-  padding: 10px;
-  margin: auto;
-  margin-bottom: 2vh;
-  border-radius: 10px;
-  width: 50%;
 }
 
 .postForm {
