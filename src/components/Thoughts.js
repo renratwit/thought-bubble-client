@@ -11,7 +11,7 @@ import Thought from './Thought';
 const Thoughts = ({messages}) => {
     console.log("THOUGHTS ", messages)
     return (
-        <div>
+        <div className="thoughts">
             {
                 messages.map((thought) => (
                     <Thought thought={thought}/>

@@ -42,7 +42,6 @@ const Form = ({submittingRequest, user}) => {
       }
 
       useEffect(() => {
-        if (user) setLoggedUser(user.name)
         if ("geolocation" in navigator) {
             // console.log("Available")
             navigator.geolocation.getCurrentPosition((position) => {
