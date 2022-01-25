@@ -14,7 +14,7 @@ const Thoughts = ({messages}) => {
         <div className="thoughts">
             {
                 messages.map((thought) => (
-                    <Thought thought={thought}/>
+                    <Thought key={thought._id} thought={thought}/>
                 ))
             }
 

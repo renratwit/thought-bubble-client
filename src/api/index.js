@@ -14,3 +14,5 @@ export const downVote = (thought, user) => axios.patch(`${url}/${thought._id}/${
 export const getUser = (userData) => axios.get(url+`/users/${userData.email}`);
 
 export const postComment = (comment, thought) => axios.patch(`${url}/${thought._id}/${comment}/postComment`)
+
+export const registerUser = (userData) => axios.post(`${url}/user/register/`, userData)

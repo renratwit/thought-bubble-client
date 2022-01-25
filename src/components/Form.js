@@ -22,15 +22,6 @@ const Form = ({submittingRequest, user}) => {
         },
         dateCreated: Date.now(),
       })
-
-    const getAllMessages = () => {
-        axios.get('http://localhost:5000').then(res => {
-            //console.log("inside get()");
-            const allMessages = res.data
-            setMessages(allMessages)
-            //console.log("messages", messages)
-        })
-    }
       
     const handleSubmit = (e) => {
         e.preventDefault();

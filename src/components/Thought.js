@@ -17,7 +17,7 @@ export default function Thought({thought}) {
     const [comments, setComments] = useState(thought.comments)
 
     useEffect(() => {
-        console.log("In useEffect ", thought)
+        // console.log("In useEffect ", thought)
         // let upVotedArr = thought.upVoted;
         // let downVotedArr = thought.downVoted;
         // let email = user.email;
@@ -63,7 +63,7 @@ export default function Thought({thought}) {
             <h1>{thought.message}</h1>
             {
                 comments.map(c => 
-                    (<p>{c}</p>)
+                    (<p key={c}>{c}</p>)
                 )
             }
             <CommentForm thought={thought} handleCommentPost={handleCommentPost}/>
