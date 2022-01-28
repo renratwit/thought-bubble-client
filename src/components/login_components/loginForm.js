@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import axios from 'axios';
-import { registerUser, loginUser } from '../../api';
+import { loginUser } from '../../api';
 
 
 export default function LoginForm() {
