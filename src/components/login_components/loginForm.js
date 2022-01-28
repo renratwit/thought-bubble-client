@@ -55,6 +55,6 @@ export default function LoginForm() {
 
             <input type="submit" value="Login" />
             </form>
-  </div>
-  );
+      </div>
+    );
 }
