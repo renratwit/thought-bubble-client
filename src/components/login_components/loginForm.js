@@ -9,7 +9,11 @@ export default function LoginForm() {
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-    let userData = JSON.stringify({name, email, password});
+    let userData = {
+      name: name,
+      email: email,
+      password: password
+    }
     console.log(userData)
     try {
       let response = await registerUser(userData)
