@@ -17,4 +17,4 @@ export const postComment = (comment, thought) => axios.patch(`${url}/${thought._
 
 export const registerUser = (userData) => axios.post(`${url}/user/register/`, userData)
 
-export const loginUser = (userData) => axios.post(`${url}/login/`, userData)
+export const loginUser = (userData) => axios.post(`${url}/user/login/`, userData)

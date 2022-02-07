@@ -21,6 +21,8 @@ export default function LoginForm() {
           setName('')
           setEmail('')
           setPassword('')
+          
+
         } catch(e) {
           console.error(e)
         }
