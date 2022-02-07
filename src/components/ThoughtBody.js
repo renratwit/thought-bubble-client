@@ -5,6 +5,8 @@ import Thoughts from './Thoughts'
 import Form from './Form'
 import {TextField, Button} from '@material-ui/core'
 import { createThought, getThoughts, getNeabyThoughts} from './../api';
+import jwt from 'jsonwebtoken';
+
 
 export default function ThoughtBody() {
     const [messages, setMessages] = useState([]);
@@ -13,7 +15,6 @@ export default function ThoughtBody() {
   const getNearMessages = async () => {
 
     if ("geolocation" in navigator) {
-      console.log("Available")
       navigator.geolocation.getCurrentPosition((position) => {
 
           myLong = position.coords.longitude
@@ -25,7 +26,7 @@ export default function ThoughtBody() {
           })
       })
     } else {
-        console.log("Not Available")
+        console.log("Geolocation Not Available")
     }
 
     
@@ -33,6 +34,16 @@ export default function ThoughtBody() {
 
   useEffect(async () => {
     getNearMessages();
+    
+    const token = localStorage.getItem('token');
+    if (token) {
+      const user = jwt.decode(token);
+      console.log(user)
+      if (!user) {
+        localStorage.removeItem(token);
+        alert('no user found error')
+      }
+    }
   }, [])
 
   const submittingRequest = async (p) => {

@@ -21,7 +21,14 @@ export default function LoginForm() {
           setName('')
           setEmail('')
           setPassword('')
-          
+
+          if (response.data.user) {
+            localStorage.setItem('token', response.data.user)
+            alert('Login Sucessful')
+            window.location.href = '/'
+          } else {
+            alert('Username and Password not found')
+          }
 
         } catch(e) {
           console.error(e)
