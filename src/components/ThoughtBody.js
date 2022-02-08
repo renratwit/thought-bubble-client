@@ -10,6 +10,7 @@ import jwt from 'jsonwebtoken';
 
 export default function ThoughtBody() {
     const [messages, setMessages] = useState([]);
+    const [user, setUser] = useState({});
 
   let myLong = 0, myLat = 0;
   const getNearMessages = async () => {
@@ -39,6 +40,7 @@ export default function ThoughtBody() {
     if (token) {
       const user = jwt.decode(token);
       console.log(user)
+      setUser(user)
       if (!user) {
         localStorage.removeItem(token);
         alert('no user found error')
@@ -55,7 +57,7 @@ export default function ThoughtBody() {
   return (
     <div>
         <h1 className="title">Thought Bubble</h1>
-        <Form submittingRequest={submittingRequest}/>
+        <Form submittingRequest={submittingRequest} user={user}/>
         <Thoughts messages={messages}/>
     </div>
   );

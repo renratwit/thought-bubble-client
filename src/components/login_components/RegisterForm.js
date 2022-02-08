@@ -18,6 +18,9 @@ export default function RegisterForm() {
     try {
       let response = await registerUser(userData)
       console.log(response);
+      if (response.data.status === 'error') {
+        alert(response.data.error)
+      }
       setName('')
       setEmail('')
       setPassword('')
