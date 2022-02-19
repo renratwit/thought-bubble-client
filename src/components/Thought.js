@@ -61,6 +61,7 @@ export default function Thought({thought}) {
     return (
         <div className="thought">
             <h1>{thought.message}</h1>
+            <p>{thought.creator}</p>
             {
                 comments.map(c => 
                     (<p key={c}>{c}</p>)
