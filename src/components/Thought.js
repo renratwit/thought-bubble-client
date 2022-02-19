@@ -2,7 +2,8 @@ import React from 'react'
 import Map from './Map'
 import {useState, useEffect} from 'react'
 import { upVote, downVote } from '../api'
-// import { useAuth0 } from '@auth0/auth0-react'
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import styles from "../style/thought.css"
 
 import CommentForm from './CommentForm'
 
@@ -17,13 +18,6 @@ export default function Thought({thought}) {
     const [comments, setComments] = useState(thought.comments)
 
     useEffect(() => {
-        // console.log("In useEffect ", thought)
-        // let upVotedArr = thought.upVoted;
-        // let downVotedArr = thought.downVoted;
-        // let email = user.email;
-
-        // if (upVotedArr.includes(email)) setDisableUpVote(true)
-        // if (downVotedArr.includes(email)) setDisableDownVote(true)
         
     }, [])
 
@@ -31,32 +25,6 @@ export default function Thought({thought}) {
         setComments([... comments, comment])
         console.log(comments)
     }
-
-    // const handleUpVote = async () => {
-    //     try {
-    //         setRating(rating + 1); // set rating in DOM
-
-    //         let returnPostData = await upVote(thought, user); // send data
-    //         setDisableUpVote(true)
-    //         setDisableDownVote(false)
-            
-    //     } catch (e) {
-    //         console.error(e)
-    //     }
-    // }
-
-    // const handleDownVote = async() => {
-    //     try {
-    //         setRating(rating - 1); // subtract rating in DOM
-
-    //         let returnPostData = await downVote(thought, user)
-    //         setDisableDownVote(true)
-    //         setDisableUpVote(false)
-
-    //     } catch (e) {
-    //         console.error(e)
-    //     }
-    // }
 
     return (
         <div className="thought">
@@ -67,6 +35,7 @@ export default function Thought({thought}) {
                     (<p key={c}>{c}</p>)
                 )
             }
+            <FavoriteIcon className="like-button" onClick={()=>{console.log("Clicked Like")}}/>
             <CommentForm thought={thought} handleCommentPost={handleCommentPost}/>
             <Map location={thought}/>
         </div>

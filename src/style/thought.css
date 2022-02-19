@@ -1,0 +1,7 @@
+.like-button {
+  color: white;
+}
+
+.like-button:hover {
+  cursor: pointer;
+}
