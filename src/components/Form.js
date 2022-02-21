@@ -1,19 +1,21 @@
-import React from 'react'
+import {React, useContext} from 'react'
 import {TextField, Button} from '@material-ui/core'
 import {useState, useEffect} from 'react'
 import axios from 'axios'
 import { createThought, getThoughts } from '../api'
 import { useAuth0 } from '@auth0/auth0-react'
+import { UserContext } from './context/UserContext'
 
-const Form = ({submittingRequest, user}) => {
+const Form = ({submittingRequest}) => {
     const [messages, setMessages] = useState([]);
-    const [loggedUser, setLoggedUser] = useState(user.email);
+    const user = useContext(UserContext);
+    const [loggedUser, setLoggedUser] = useState(user);
 
     // console.log(user)
 
     const [currentPost, setCurrentPost] = useState({
         message: '',
-        creator: loggedUser,
+        creator: loggedUser.email,
         rating: 0,
         upvoted: [],
         downVoted: [],
@@ -41,10 +43,6 @@ const Form = ({submittingRequest, user}) => {
             })
         } else {
             console.log("Not Available")
-        }
-
-        if(user) {
-            setLoggedUser(user.email)
         }
         console.log("In Form: ", user.email)
       }, [])

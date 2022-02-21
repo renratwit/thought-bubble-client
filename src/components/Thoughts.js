@@ -8,7 +8,7 @@ import { getThoughts } from '../api';
 import Map from './Map'
 import Thought from './Thought';
 
-const Thoughts = ({messages, user}) => {
+const Thoughts = ({messages}) => {
     console.log("THOUGHTS ", messages)
     return (
         <div className="thoughts">

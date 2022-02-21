@@ -59,8 +59,8 @@ export default function ThoughtBody() {
     <div>
         <h1 className="title">Thought Bubble</h1>
         <UserContext.Provider value={user}>
-          <Form submittingRequest={submittingRequest} user={user}/>
-          <Thoughts messages={messages} user={user}/>
+          <Form submittingRequest={submittingRequest}/>
+          <Thoughts messages={messages}/>
         </UserContext.Provider>
 
     </div>
