@@ -1,11 +1,13 @@
 import React from 'react';
-import {useEffect, useState} from 'react'
+import {useEffect, useState, useContext} from 'react'
 import axios from 'axios';
 import Thoughts from './Thoughts'
 import Form from './Form'
 import {TextField, Button} from '@material-ui/core'
 import { createThought, getThoughts, getNeabyThoughts} from './../api';
 import jwt from 'jsonwebtoken';
+
+import {UserContext} from './context/UserContext.js'
 
 
 export default function ThoughtBody() {
@@ -29,14 +31,13 @@ export default function ThoughtBody() {
     } else {
         console.log("Geolocation Not Available")
     }
-
-    
   }
 
   useEffect(async () => {
     getNearMessages();
-    
     const token = localStorage.getItem('token');
+
+    // get the user
     if (token) {
       const user = jwt.decode(token);
       console.log(user)
@@ -57,8 +58,11 @@ export default function ThoughtBody() {
   return (
     <div>
         <h1 className="title">Thought Bubble</h1>
-        <Form submittingRequest={submittingRequest} user={user}/>
-        <Thoughts messages={messages}/>
+        <UserContext.Provider value={user}>
+          <Form submittingRequest={submittingRequest} user={user}/>
+          <Thoughts messages={messages} user={user}/>
+        </UserContext.Provider>
+
     </div>
   );
 }
