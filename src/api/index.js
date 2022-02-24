@@ -11,6 +11,7 @@ export const getNeabyThoughts = (long, lat) => axios.get(`${url}/near/${long}/${
 export const upVote = (thought, user) => axios.patch(`${url}/${thought._id}/${user.email}/voteUp`)
 export const downVote = (thought, user) => axios.patch(`${url}/${thought._id}/${user.email}/voteDown`)
 export const likePost = (thought, user) => axios.patch(`${url}/likePost/${thought._id}/${user.email}`)
+export const unlikePost = (thought, user) => axios.patch(`${url}/unlikePost/${thought._id}/${user.email}`)
 
 export const getUser = (userData) => axios.get(url+`/users/${userData.email}`);
 
