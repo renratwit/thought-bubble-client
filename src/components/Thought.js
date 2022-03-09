@@ -18,8 +18,13 @@ export default function Thought({thought}) {
     const [isLikedPost, setIsLikedPost] = useState(Array.from(likedUsers).includes(user.email))
     
     useEffect(() => {
+
         console.log(user)
     }, [])
+
+    useEffect(()=> {
+        console.log("rendering thought")
+    }, [comments])
 
     let handleCommentPost = (comment) => {
         setComments([... comments, comment])
@@ -64,11 +69,7 @@ export default function Thought({thought}) {
 
             <p>{thought.creator}</p>
             <Comments comments={comments}/>
-            {
-                // comments.map(c => 
-                //     (<p key={c}>{c}</p>)
-                // )
-            }
+
 
             {/* {
                 !isMyPost ? <FavoriteIcon className="like-button" onClick={handleLike}/> : <></>
