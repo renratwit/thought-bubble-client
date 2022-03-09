@@ -17,20 +17,18 @@ body {
 }
 
 .thoughts {
-  display: flex;
   background-color: antiquewhite;
-  flex-direction: row;
-  flex-wrap: wrap;
   justify-content: flex-start;
 }
 
 .thought {
   background-color: #5fc9f3;
   padding: 10px;
-  margin: 15px;
+  margin: auto;
   flex: auto;
   border-radius: 10px;
-  width: 40%;
+
+  margin-top: 15px;
 }
 
 .leaflet-container {

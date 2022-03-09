@@ -4,7 +4,7 @@ import {useState, useEffect} from 'react'
 import { upVote, downVote, likePost } from '../api'
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import styles from "../style/thought.css"
-
+import Comments from "./Comments"
 import CommentForm from './CommentForm'
 import { UserContext } from './context/UserContext';
 import Favorite from '@mui/icons-material/Favorite';
@@ -63,17 +63,16 @@ export default function Thought({thought}) {
             {rating}
 
             <p>{thought.creator}</p>
+            <Comments comments={comments}/>
             {
-                comments.map(c => 
-                    (<p key={c}>{c}</p>)
-                )
+                // comments.map(c => 
+                //     (<p key={c}>{c}</p>)
+                // )
             }
 
             {/* {
                 !isMyPost ? <FavoriteIcon className="like-button" onClick={handleLike}/> : <></>
             } */
-            
-                
             }
             
             <CommentForm thought={thought} handleCommentPost={handleCommentPost}/>
