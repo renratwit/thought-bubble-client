@@ -3,6 +3,7 @@ import {useEffect, useState, useContext} from 'react'
 import axios from 'axios';
 import Thoughts from './Thoughts'
 import Form from './Form'
+import NavBar from './NavBar';
 import {TextField, Button} from '@material-ui/core'
 import { createThought, getThoughts, getNeabyThoughts} from './../api';
 import jwt from 'jsonwebtoken';
@@ -57,7 +58,6 @@ export default function ThoughtBody() {
   }
   return (
     <div>
-        <h1 className="title">Thought Bubble</h1>
         <UserContext.Provider value={user}>
           <Form submittingRequest={submittingRequest}/>
           <Thoughts messages={messages}/>
