@@ -1,3 +1,7 @@
+Full stack MERN application to demo and develop new skills.
+Similar to apps like YikYak, ThoughtBubble is a geolocation based social media platform that allows users to post, like, and comment on posts near the users' location.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
