@@ -3,6 +3,20 @@ Similar to apps like YikYak, ThoughtBubble is a geolocation based social media p
 
 ![sample screenshot](https://raw.githubusercontent.com/renratwit/thought-bubble-client/main/res/Screenshot%202022-03-21%20161246.png)
 
+![sample screenshot](https://raw.githubusercontent.com/renratwit/thought-bubble-client/main/res/Screenshot%202022-03-21%20161340.png)
+
+![sample screenshot](https://raw.githubusercontent.com/renratwit/thought-bubble-client/main/res/Screenshot%202022-03-21%20161405.png)
+
+![sample screenshot](https://raw.githubusercontent.com/renratwit/thought-bubble-client/main/res/Screenshot%202022-03-21%20161446.png)
+
+
+
+
+
+
+
+
+
 
 # Getting Started with Create React App
 
