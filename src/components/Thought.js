@@ -67,7 +67,7 @@ export default function Thought({thought}) {
             </button>
             {rating}
 
-            <p>{thought.creator}</p>
+            {/* <p>{thought.creator}</p> */}
             <Comments comments={comments}/>
 
 
