@@ -5,6 +5,7 @@ import axios from 'axios'
 import { createThought, getThoughts } from '../api'
 import { useAuth0 } from '@auth0/auth0-react'
 import { UserContext } from './context/UserContext'
+import "../style/form.css"
 
 const Form = ({submittingRequest}) => {
     const MAX_WORD_COUNT = 150;
@@ -61,7 +62,7 @@ const Form = ({submittingRequest}) => {
         <div>
             <form onSubmit={handleSubmit} className="postForm">
                 {user ? <h1>Logged in as {user.name}</h1> : <h1>Not logged in</h1>}
-                <input id="input-form" value={currentPost.message} onChange={handleUserInput} maxLength="10"/>
+                <input id="input-form" value={currentPost.message} onChange={handleUserInput} maxLength={MAX_WORD_COUNT.toString()}/>
                 <p>{currentPost.message.length}/150</p>
                 <Button varient="contained" type="submit">Submit</Button>
             </form>
