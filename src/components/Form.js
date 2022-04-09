@@ -49,7 +49,6 @@ const Form = ({submittingRequest}) => {
     }
 
     const handleUserInput = (e) => {
-        if (currentPost.message.length === 10) return;
         setCurrentPost({...currentPost, message: e.target.value})
     }
 
@@ -62,7 +61,7 @@ const Form = ({submittingRequest}) => {
         <div>
             <form onSubmit={handleSubmit} className="postForm">
                 {user ? <h1>Logged in as {user.name}</h1> : <h1>Not logged in</h1>}
-                <TextField value={currentPost.message} onChange={handleUserInput}/>
+                <input id="input-form" value={currentPost.message} onChange={handleUserInput} maxLength="10"/>
                 <p>{currentPost.message.length}/150</p>
                 <Button varient="contained" type="submit">Submit</Button>
             </form>
